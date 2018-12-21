@@ -15,14 +15,20 @@ router.get('/scrape', (req, res) => {
       let result = {};
 
       result.title = $(this)
+        .find('.tnt-headline')
         .find('a')
         .text();
 
       result.link =
         'http://www.northwestgeorgianews.com' +
         $(this)
+          .find('.tnt-headline')
           .find('a')
           .attr('href');
+
+      result.summary = $(this)
+        .find('.tnt-summary')
+        .text();
 
       db.Article.create(result)
         .then(dbArticle => console.log(dbArticle))
