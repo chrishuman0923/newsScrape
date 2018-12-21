@@ -1,0 +1,10 @@
+<h1>Rome News Scraper</h1>
+{{#each article}}
+  <div class="article" id="{{_id}}">
+    <h2>{{title}}</h2>
+    <p>{{summary}}</p>
+    <a href={{link}} target="blank">
+      <button>Go to Article</button>
+    </a>
+  </div>
+{{/each}}
