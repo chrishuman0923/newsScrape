@@ -15,6 +15,11 @@ const articleSchema = new Schema({
     required: true,
     trim: true
   },
+  summary: {
+    type: String,
+    required: true,
+    trim: true
+  },
   notes: [
     {
       type: Schema.Types.ObjectId,
