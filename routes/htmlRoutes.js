@@ -7,14 +7,11 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   db.Article.find({})
-    .then(docs => {
-      res.status(200).json(docs);
-      //res.render('index', docs);
-    })
-    .catch(err => {
-      res.status(500).json(err);
-      //res.render('404');
-    });
+    .then(docs => res.status(200).json(docs))
+    //res.render('index', docs);
+    .catch(err => res.status(500).json(err));
+  //res.render('404');
 });
 
+//Export router
 module.exports = router;
