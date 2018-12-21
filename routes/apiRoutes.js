@@ -9,15 +9,14 @@ const router = express.Router();
 
 router.get('/scrape', (req, res) => {
   axios.get('http://www.northwestgeorgianews.com/rome/news/').then(resp => {
-    var $ = cheerio.load(resp.data);
+    const $ = cheerio.load(resp.data);
 
-    $('.card-body').each(() => {
-      var result = {};
+    $('.card-body').each(function() {
+      let result = {};
 
-      result.title = 'Test';
-      // result.title = $(this)
-      //   .find('a')
-      //   .text();
+      result.title = $(this)
+        .find('a')
+        .text();
 
       result.link =
         'http://www.northwestgeorgianews.com' +
@@ -26,12 +25,8 @@ router.get('/scrape', (req, res) => {
           .attr('href');
 
       db.Article.create(result)
-        .then(dbArticle => {
-          console.log(dbArticle);
-        })
-        .catch(err => {
-          console.error(err);
-        });
+        .then(dbArticle => console.log(dbArticle))
+        .catch(err => console.error(err));
     });
 
     res.send('Scrape Complete');
