@@ -2,6 +2,7 @@
 const express = require('express'),
   axios = require('axios'),
   cheerio = require('cheerio'),
+  moment = require('moment'),
   db = require('../models');
 
 //Create router
@@ -25,6 +26,13 @@ router.get('/scrape', (req, res) => {
           .find('.tnt-headline')
           .find('a')
           .attr('href');
+
+      result.articleDate = moment(
+        $(this)
+          .find('.card-date')
+          .find('time')
+          .attr('datetime')
+      ).format('MM/DD/YY, h:mm a');
 
       result.summary = $(this)
         .find('.tnt-summary')
