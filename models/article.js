@@ -15,6 +15,10 @@ const articleSchema = new Schema({
     required: true,
     trim: true
   },
+  articleDate: {
+    type: String,
+    required: true
+  },
   summary: {
     type: String,
     required: true,
