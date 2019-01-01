@@ -7,9 +7,9 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   db.Article.find({})
+    .sort({ articleDate: -1 })
     .then(docs => res.status(200).render('index', { article: docs }))
     .catch(err => res.status(500).json(err));
-  //res.render('404');
 });
 
 //"Catch All" route
