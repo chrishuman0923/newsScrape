@@ -31,8 +31,8 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 //Set routes
-app.use(htmlRoutes);
 app.use(apiRoutes);
+app.use(htmlRoutes);
 
 //Start the server
 app.listen(port, () => {
