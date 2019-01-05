@@ -15,7 +15,11 @@ const articleSchema = new Schema({
     required: true,
     trim: true
   },
-  articleDate: {
+  date: {
+    type: Date,
+    required: true
+  },
+  displayDate: {
     type: String,
     required: true
   },
@@ -23,6 +27,15 @@ const articleSchema = new Schema({
     type: String,
     required: true,
     trim: true
+  },
+  img: {
+    type: String,
+    trim: true
+  },
+  imgAlt: {
+    type: String,
+    trim: true,
+    default: 'Article Image'
   },
   notes: [
     {
