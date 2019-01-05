@@ -1,11 +1,19 @@
 {{> navbar}}
 {{#each article}}
-  <div class="article" id="{{_id}}">
-    <h2>{{title}}</h2>
-    <p>{{articleDate}}</p>
-    <p>{{summary}}</p>
-    <a href={{link}} target="blank">
-      <button>Go to Article</button>
-    </a>
+  <div class="container">
+    <div class="card m-3">
+      <div class="card-body" id="{{_id}}">
+        <img class="articleImg" src="{{img}}" alt="{{imgAlt}}"/>
+        <h2 class="articleTitle">{{title}}</h2>
+        <p class="articleDate">Posted: {{displayDate}}</p>
+        <p class="articleSummary">"{{summary}}"</p>
+        <div class="text-right">
+          <a href={{link}} target="blank">
+            <button class="btn btn-primary mr-2">Go to Article</button>
+          </a>
+          <button class="btn btn-secondary ml-2">Add Notes</button>
+        </div>
+      </div>
+    </div>
   </div>
 {{/each}}
