@@ -1,0 +1,39 @@
+body {
+  background-color: gray;
+}
+
+#homeBrand {
+  font-size: 3.5em;
+  font-family: 'Redressed', cursive;
+}
+
+.articleTitle {
+  font-size: 1.75em;
+}
+
+.articleDate {
+  font-size: 0.85em;
+}
+
+.articleSummary {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.noArticlesHeader, .noArticlesMsg {
+  font-size: 2.5em;
+  color: white;
+  text-align: center;
+}
+
+.noArticlesMsg{
+  font-size: 1.5em;
+  margin-top: 25px;
+}
+
+.articleImg {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-right: 25px;
+}
