@@ -7,8 +7,16 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   db.Article.find({})
-    .sort({ articleDate: -1 })
-    .then(docs => res.status(200).render('index', { article: docs }))
+    .sort({ date: -1 })
+    .then(docs => {
+      //No documents in database
+      if (docs.length === 0) {
+        //Add the return to stop executing code
+        return res.status(200).render('noArticles', {});
+      }
+
+      res.status(200).render('index', { article: docs });
+    })
     .catch(err => res.status(500).json(err));
 });
 
