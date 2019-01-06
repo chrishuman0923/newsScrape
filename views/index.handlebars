@@ -1,6 +1,6 @@
 {{> navbar}}
-{{#each article}}
-  <div class="container">
+<div class="container">
+  {{#each article}}
     <div class="card m-3">
       <div class="card-body" id="{{_id}}">
         <img class="articleImg" src="{{img}}" alt="{{imgAlt}}"/>
@@ -11,9 +11,35 @@
           <a href={{link}} target="blank">
             <button class="btn btn-primary mr-2">Go to Article</button>
           </a>
-          <button class="btn btn-secondary ml-2">Add Notes</button>
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#a{{_id}}">
+            <button class="btn btn-secondary">Article Notes</button>
+          </a>
+        </div>
+        <div class="accordion noteSection mt-5" id="accordion2">
+          <div class="accordion-group">
+            <div id="a{{_id}}" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                <h3>Notes for Mongo ID: {{_id}}</h3>
+                <form>
+                  <div class="form-group">
+                    <label for="noteText">New Note:</label>
+                    <textarea class="form-control" id="noteText" rows="3"></textarea>
+                  </div>
+                  <a>
+                    <button class="btn btn-primary">Submit</button>
+                  </a>
+                </form>
+                <h4 class="notes">Previous Notes:</h4>
+                <ul>
+                  {{#each notes}}
+                    <li>{{body}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-{{/each}}
+  {{/each}}
+</div>
