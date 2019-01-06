@@ -37,3 +37,11 @@ body {
   height: 200px;
   margin-right: 25px;
 }
+
+.noteSection {
+  clear: both;
+}
+
+.notes {
+  margin-top: 25px;
+}
