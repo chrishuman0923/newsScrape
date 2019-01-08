@@ -2,7 +2,7 @@
 <div class="container">
   {{#each article}}
     <div class="card m-3">
-      <div class="card-body" id="{{_id}}">
+      <div class="card-body">
         <img class="articleImg" src="{{img}}" alt="{{imgAlt}}"/>
         <h2 class="articleTitle">{{title}}</h2>
         <p class="articleDate">Posted: {{displayDate}}</p>
@@ -23,18 +23,18 @@
                 <h3>Notes for Mongo ID: {{_id}}</h3>
                 <form>
                   <div class="form-group">
-                    <label for="noteText">New Note:</label>
-                    <textarea class="form-control" id="noteText" rows="3"></textarea>
+                    <label>New Note:</label>
+                    <textarea class="form-control" rows="3" id="{{_id}}"></textarea>
                   </div>
                   <a>
-                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary addNoteBtn" data-id="{{_id}}">Submit</button>
                   </a>
                 </form>
                 <h4 class="notes">Previous Notes:</h4>
-                <ul>
-                  {{#each notes}}
+                <ul id="b{{_id}}">
+                  {{#notes}}
                     <li>{{body}}</li>
-                  {{/each}}
+                  {{/notes}}
                 </ul>
               </div>
             </div>
