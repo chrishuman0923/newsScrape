@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   db.Article.find({})
+    .populate('note')
     .sort({ date: -1 })
     .then(docs => {
       //No documents in database
@@ -14,7 +15,7 @@ router.get('/', (req, res) => {
         //Add the return to stop executing code
         return res.status(200).render('noArticles', {});
       }
-
+      console.log(docs);
       res.status(200).render('index', { article: docs });
     })
     .catch(err => res.status(500).json(err));
