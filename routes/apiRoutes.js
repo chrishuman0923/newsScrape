@@ -16,6 +16,7 @@ router.get('/scrape', (req, res) => {
       const $ = cheerio.load(resp.data);
 
       $('.card-container').each(function() {
+        //Create new object to store the article info
         let result = {};
 
         result.title = $(this)
@@ -56,14 +57,34 @@ router.get('/scrape', (req, res) => {
           .find('img')
           .attr('alt');
 
+        //Insert each article into DB
         db.Article.create(result)
           .then(dbArticle => console.log(dbArticle))
           .catch(err => console.error(err));
       });
 
+      //Send back 'ok' status
       res.status(200).send('Complete');
     })
+    //Catch and log error
     .catch(err => res.status(500).send(err));
+});
+
+//Create article note
+router.post('/articles/:id', (req, res) => {
+  //Create note in DB
+  db.Note.create(req.body)
+    //Add note id to article
+    .then(dbNote => {
+      return db.Article.findOneAndUpdate(
+        { _id: req.params.id },
+        { $push: { notes: dbNote._id } },
+        { new: true }
+      );
+    })
+    //return article with note
+    .then(dbArticle => res.json(dbArticle))
+    .catch(err => res.json(err));
 });
 
 module.exports = router;
