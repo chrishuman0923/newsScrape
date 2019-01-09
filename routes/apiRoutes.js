@@ -87,4 +87,10 @@ router.post('/articles/:id', (req, res) => {
     .catch(err => res.json(err));
 });
 
+router.delete('/note/:id', (req, res) => {
+  db.Note.findByIdAndDelete({ _id: req.params.id })
+    .then(dbNote => res.json(dbNote))
+    .catch(err => res.json(err));
+});
+
 module.exports = router;
