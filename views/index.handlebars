@@ -31,11 +31,16 @@
                   </a>
                 </form>
                 <h4 class="notes">Previous Notes:</h4>
-                <ul id="b{{_id}}">
+                <div class="container noteDiv" id="b{{_id}}">
                   {{#notes}}
-                    <li>{{body}}</li>
+                    <div class="card m-3">
+                      <div class="card-body">
+                        {{body}}
+                        <button class="btn btn-danger deleteNote" data-id="{{_id}}">X</button>
+                      </div>
+                    </div>
                   {{/notes}}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
