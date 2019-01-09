@@ -45,3 +45,11 @@ body {
 .notes {
   margin-top: 25px;
 }
+
+.deleteNote {
+  float: right;
+}
+
+.noteDiv {
+  background-color: gray;
+}
