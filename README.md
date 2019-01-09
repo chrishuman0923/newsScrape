@@ -16,6 +16,7 @@ All of the data being scraped from the news site is being stored in Mongo DB.
 - Require JS
 - Heroku
 - URL Routing
+- API Routing
 - Mongo DB
 
 # Acknowledgments
