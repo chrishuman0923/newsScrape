@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   db.Article.find({})
-    .populate('note')
+    .populate('notes')
     .sort({ date: -1 })
     .then(docs => {
       //No documents in database
