@@ -1,6 +1,7 @@
 $(document).ready(() => {
   const $scrapeBtn = $('#scrapeBtn'),
-    $addNoteBtn = $('.addNoteBtn');
+    $addNoteBtn = $('.addNoteBtn'),
+    $deleteNoteBtn = $('.deleteNote');
 
   $scrapeBtn.on('click', () => {
     $.get('/scrape', resp => {
@@ -25,5 +26,16 @@ $(document).ready(() => {
     } else {
       alert('Please enter a note.');
     }
+  });
+
+  $deleteNoteBtn.on('click', function() {
+    let articleID = $(this).attr('data-id');
+
+    $.ajax({
+      type: 'DELETE',
+      url: `/note/${articleID}`
+    }).then(() => {
+      window.location.href = '/';
+    });
   });
 });
