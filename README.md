@@ -1,4 +1,4 @@
-# newsScrape
+# News Scrape
 
 The News Scraper App is an application that "scrapes" a local news website and renders information about their posted articles into the application. The app is deployed on Heroku [here](https://desolate-harbor-55384.herokuapp.com/).
 
@@ -8,6 +8,13 @@ The app has been preloaded with current news articles. However, the user can alw
 ## Notes
 All of the data being scraped from the news site is being stored in Mongo DB.
 Some of the pictures do not load because the news site does not consistently format their site to code their images the same way. They use different tags for different situations.
+
+## Getting Started
+1. `npm install`
+2. `npm run start`
+3. Click "Scrape New Articles" button
+4. View Article
+5. Add Article Note
 
 ## Technologies Used
 - HTML 5
